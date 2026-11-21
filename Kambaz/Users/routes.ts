@@ -44,6 +44,10 @@ export default function UserRoutes(app, db) {
     }
     res.json(updatedUser);
   };
+  const createUser = (req, res) => {
+    res.json(dao.createUser(req.body));
+  };
+  app.post("/api/users", createUser);
   app.post("/api/users/signup", signup);
   app.post("/api/users/signin", signin);
   app.post("/api/users/signout", signout);
